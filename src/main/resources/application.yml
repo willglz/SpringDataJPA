@@ -1,0 +1,22 @@
+server:
+  port: 8080
+  error:
+    include-message: always
+  servlet:
+    context-path: /api/v1
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/customer
+    username: postgres
+    password: sasa
+  jpa:
+    hibernate:
+      ddlAuto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    showSql: true
+  main:
+    web-application-type: servlet

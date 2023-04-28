@@ -50,4 +50,9 @@ public class StudentService {
     public List<Student> showStudentsByNameLike(String l){
         return studentDAO.findStudentsByNameLike(l);
     }
+
+    public Student findStudentById(Long id){
+        return studentDAO.findStudentById(id)
+                .orElseThrow(() -> new ResourseNotFoundException("Student not found"));
+    }
 }

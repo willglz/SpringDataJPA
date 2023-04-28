@@ -13,4 +13,6 @@ public interface StudentDAO {
     Optional<Student> findStudentByEmail(String email);
     List<Student> findStudentsByRank(String rank);
     List<Student> findStudentsByNameLike(String l);
+
+    Optional<Student> findStudentById(Long id);
 }

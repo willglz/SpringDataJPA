@@ -50,4 +50,9 @@ public class StudentDAS implements StudentDAO {
     public List<Student> findStudentsByNameLike(String l) {
         return studentRepository.findStudentsByNameLikeNative(l);
     }
+
+    @Override
+    public Optional<Student> findStudentById(Long id) {
+        return studentRepository.findById(id);
+    }
 }

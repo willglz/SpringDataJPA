@@ -50,4 +50,9 @@ public class StudentController {
     public List<Student> getStudentsByNameLike(@RequestParam("like") String like){
         return studentService.showStudentsByNameLike(like);
     }
+
+    @GetMapping("{studentId}")
+    public Student getStudentById(@PathVariable("studentId") Long id){
+        return studentService.findStudentById(id);
+    }
 }

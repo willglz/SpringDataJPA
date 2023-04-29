@@ -28,7 +28,7 @@ public class StudentIdCard {
             generator = "student_id_card_sequence"
     )
     @Column(
-            name = "id",
+            name = "card_id",
             updatable = false
     )
     private Long id;
@@ -45,7 +45,7 @@ public class StudentIdCard {
     )
     @JoinColumn(
             name = "student_id",
-            referencedColumnName = "id"
+            referencedColumnName = "student_id"
     )
     private Student student;
 

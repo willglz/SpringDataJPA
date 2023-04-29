@@ -24,4 +24,9 @@ public class StudentIdCardDAS implements StudentIdCardDAO {
     public void insertStudentCard(StudentIdCard studentIdCard) {
         studentIdCardRepository.save(studentIdCard);
     }
+
+    @Override
+    public void deleteStudentIdCard(Long id) {
+        studentIdCardRepository.deleteById(id);
+    }
 }

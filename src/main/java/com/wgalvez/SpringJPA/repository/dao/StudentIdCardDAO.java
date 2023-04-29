@@ -7,4 +7,5 @@ import java.util.List;
 public interface StudentIdCardDAO {
     List<StudentIdCard> showAllStudentsCards();
     void insertStudentCard(StudentIdCard studentIdCard);
+    void deleteStudentIdCard(Long id);
 }

@@ -55,4 +55,9 @@ public class StudentDAS implements StudentDAO {
     public Optional<Student> findStudentById(Long id) {
         return studentRepository.findById(id);
     }
+
+    @Override
+    public List<Student> showAllStudentWithCard() {
+        return studentRepository.findStudentsWhitCard();
+    }
 }

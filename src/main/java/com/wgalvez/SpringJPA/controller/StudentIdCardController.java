@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("cards")
+@RequestMapping("studentCard")
 public class StudentIdCardController {
     private final StudentIdCardService studentIdCardService;
 
@@ -24,5 +24,10 @@ public class StudentIdCardController {
     @PostMapping
     public void addCard(@RequestBody StudentIdCardRegistrationRequest request){
         studentIdCardService.addCard(request);
+    }
+
+    @DeleteMapping("{StudentCardId}")
+    public void deleteStudentCard(@PathVariable("StudentCardId") Long id){
+        studentIdCardService.removeStudenIdCard(id);
     }
 }

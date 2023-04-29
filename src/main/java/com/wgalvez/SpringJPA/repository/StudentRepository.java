@@ -27,4 +27,7 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
     @Modifying
     @Query("DELETE FROM Student s WHERE s.firstName = ?1")
     int deleteStudent(Long id);
+
+    @Query(value = "SELECT first_name, last_name, card_number FROM student_id_card as s INNER JOIN student as c ON s.card_id=c.student_id", nativeQuery = true)
+    List<Student> findStudentsWhitCard();
 }

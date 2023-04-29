@@ -16,9 +16,12 @@ public class StudentController {
         this.studentService = studentService;
     }
 
+    //@GetMapping
+    //public List<Student> getStudents(){return studentService.getAllStudents();}
+
     @GetMapping
-    public List<Student> getStudents(){
-        return studentService.getAllStudents();
+    public List<Student> getStudentsWithCard(){
+        return studentService.getAllStudentsWithCard();
     }
 
     @PostMapping

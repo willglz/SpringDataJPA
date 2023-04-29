@@ -25,4 +25,8 @@ public class StudentIdCardService {
         studentIdCard.setStudent(request.student());
         studentIdCardDAO.insertStudentCard(studentIdCard);
     }
+
+    public void removeStudenIdCard(Long id){
+        studentIdCardDAO.deleteStudentIdCard(id);
+    }
 }

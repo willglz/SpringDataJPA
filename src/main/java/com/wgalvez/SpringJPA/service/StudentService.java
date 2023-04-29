@@ -55,4 +55,8 @@ public class StudentService {
         return studentDAO.findStudentById(id)
                 .orElseThrow(() -> new ResourseNotFoundException("Student not found"));
     }
+
+    public List<Student> getAllStudentsWithCard(){
+        return studentDAO.showAllStudentWithCard();
+    }
 }

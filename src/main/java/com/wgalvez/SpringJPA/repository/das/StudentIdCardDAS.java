@@ -17,7 +17,7 @@ public class StudentIdCardDAS implements StudentIdCardDAO {
 
     @Override
     public List<StudentIdCard> showAllStudentsCards() {
-        return studentIdCardRepository.findAllStudentsCard() ;
+        return studentIdCardRepository.findAll();
     }
 
     @Override

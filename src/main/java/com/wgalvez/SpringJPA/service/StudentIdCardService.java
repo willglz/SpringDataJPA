@@ -20,10 +20,7 @@ public class StudentIdCardService {
     }
 
     public void addCard(StudentIdCardRegistrationRequest request){
-        StudentIdCard studentIdCard = new StudentIdCard();
-        studentIdCard.setCardNumber(request.cardNumber());
-        studentIdCard.setStudent(request.student());
-        studentIdCardDAO.insertStudentCard(studentIdCard);
+        studentIdCardDAO.insertStudentCard(new StudentIdCard(request));
     }
 
     public void removeStudenIdCard(Long id){

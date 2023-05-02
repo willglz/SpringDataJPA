@@ -1,6 +1,8 @@
 package com.wgalvez.SpringJPA.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.wgalvez.SpringJPA.request.StudentRegistrationRequest;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -63,11 +65,26 @@ public class Student {
     )
     private Integer age;
 
+    @OneToOne(
+            mappedBy = "student",
+            orphanRemoval = true
+    )
+
+    private StudentIdCard studentIdCard;
+
     public Student(String firstName, String lastName, String email, String rank, Integer age) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.rank = rank;
         this.age = age;
+    }
+
+    public Student(StudentRegistrationRequest studentRegistrationRequest){
+        this.firstName = studentRegistrationRequest.firstName();
+        this.lastName = studentRegistrationRequest.lastName();
+        this.email = studentRegistrationRequest.email();
+        this.rank = studentRegistrationRequest.rank();
+        this.age = studentRegistrationRequest.age();
     }
 }

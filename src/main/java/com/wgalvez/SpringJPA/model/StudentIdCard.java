@@ -1,6 +1,8 @@
 package com.wgalvez.SpringJPA.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.wgalvez.SpringJPA.request.StudentIdCardRegistrationRequest;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -39,17 +41,19 @@ public class StudentIdCard {
     )
     private String cardNumber;
 
-    @OneToOne(
-            cascade = CascadeType.ALL,
-            fetch = FetchType.EAGER
-    )
+    @OneToOne
     @JoinColumn(
             name = "student_id",
-            referencedColumnName = "student_id"
+            referencedColumnName = "student_id",
+            foreignKey = @ForeignKey(
+                    name = "student_id_card_student_id_fk"
+            )
     )
+
     private Student student;
 
-    public StudentIdCard(String cardNumber) {
-        this.cardNumber = cardNumber;
+    public StudentIdCard(StudentIdCardRegistrationRequest studentIdCardRegistrationRequest) {
+        this.cardNumber = studentIdCardRegistrationRequest.cardNumber();
+        this.student = new Student(studentIdCardRegistrationRequest.student());
     }
 }

@@ -37,7 +37,7 @@ public class StudentIdCard {
     @Column(
             name = "card_number",
             nullable = false,
-            length = 15
+            length = 20
     )
     private String cardNumber;
 
